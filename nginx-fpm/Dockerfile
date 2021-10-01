@@ -1,5 +1,4 @@
 FROM ubuntu
-MAINTAINER bartr
 
 EXPOSE 80 443
 
@@ -68,8 +67,7 @@ RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php/7.0/fpm/php.
 # Let the conatiner know that there is no tty
 #ENV DEBIAN_FRONTEND noninteractive
 
-ENV GIT_REPO=https://github.com/bartr/wordpressfiles.git \
-WORDPRESS_DB_HOST=westus1-a.control.database.windows.net \
+ENV WORDPRESS_DB_HOST=mysql-vpn-test.mysql.database.azure.com \
 WORDPRESS_DB_NAME=wordpress
 
 COPY wprun.sh wp-config.php /usr/local/
